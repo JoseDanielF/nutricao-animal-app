@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thunderapp/screens/add_animal/add_animal_screen.dart';
+import 'package:thunderapp/screens/edit_animal/edit_animal_controller.dart';
 import 'package:thunderapp/screens/screens_index.dart';
 import 'package:thunderapp/shared/constants/app_number_constants.dart';
 import 'package:thunderapp/shared/constants/style_constants.dart';
@@ -62,8 +62,9 @@ class _EditAnimalScreenState extends State<EditAnimalScreen> {
                 padding: const EdgeInsets.only(left: 16),
                 child: Text(
                   'Name',
-                  style:
-                      TextStyle(color: kSecondaryColor, fontSize: heightScreen * kMediumSize),
+                  style: TextStyle(
+                      color: kSecondaryColor,
+                      fontSize: heightScreen * kMediumSize),
                 ),
               ),
               Center(
@@ -90,14 +91,18 @@ class _EditAnimalScreenState extends State<EditAnimalScreen> {
                 padding: const EdgeInsets.only(left: 16),
                 child: Text(
                   'Espécie',
-                  style: TextStyle(color: kSecondaryColor, fontSize: heightScreen * kMediumSize),
+                  style: TextStyle(
+                      color: kSecondaryColor,
+                      fontSize: heightScreen * kMediumSize),
                 ),
               ),
               Row(
                 children: [
                   Expanded(
                     child: RadioListTile(
-                      title: Text('Cachorro', style: TextStyle(fontSize: heightScreen * kMediumLargeSize)),
+                      title: Text('Cachorro',
+                          style: TextStyle(
+                              fontSize: heightScreen * kMediumLargeSize)),
                       value: 'dog',
                       groupValue: specie,
                       activeColor: kDetailColor,
@@ -112,7 +117,11 @@ class _EditAnimalScreenState extends State<EditAnimalScreen> {
                   ),
                   Expanded(
                     child: RadioListTile(
-                      title: Text('Gato', style: TextStyle(fontSize: heightScreen * kMediumLargeSize),),
+                      title: Text(
+                        'Gato',
+                        style: TextStyle(
+                            fontSize: heightScreen * kMediumLargeSize),
+                      ),
                       value: 'cat',
                       groupValue: specie,
                       activeColor: kDetailColor,
@@ -135,7 +144,9 @@ class _EditAnimalScreenState extends State<EditAnimalScreen> {
                 padding: const EdgeInsets.only(left: 16),
                 child: Text(
                   'Sexo',
-                  style: TextStyle(color: kSecondaryColor, fontSize: heightScreen * kMediumSize),
+                  style: TextStyle(
+                      color: kSecondaryColor,
+                      fontSize: heightScreen * kMediumSize),
                 ),
               ),
               const AnimalSexWidget(),
@@ -146,7 +157,9 @@ class _EditAnimalScreenState extends State<EditAnimalScreen> {
                 padding: const EdgeInsets.only(left: 16),
                 child: Text(
                   'Seu animal é castrado(a)?',
-                  style: TextStyle(color: kSecondaryColor, fontSize: heightScreen * kMediumSize),
+                  style: TextStyle(
+                      color: kSecondaryColor,
+                      fontSize: heightScreen * kMediumSize),
                 ),
               ),
               const CastratedWidget(),
@@ -164,7 +177,19 @@ class _EditAnimalScreenState extends State<EditAnimalScreen> {
                               color: kBackgroundColor,
                               fontWeight: FontWeight.w500,
                               fontSize: heightScreen * kMediumLargeSize)),
-                      onPressed: () {},
+                      onPressed: () {
+                        EditAnimalController().editAnimal(
+                          nameController,
+                          AnimalSex.values[0],
+                          Castrated.values[0],
+                          //activityLevel, 
+                          pesoController,
+                          alturaController,
+                          specie,
+                          context,
+                        );
+                        Navigator.pushNamed(context, Screens.home);
+                      },
                     ),
                   ),
                 ),

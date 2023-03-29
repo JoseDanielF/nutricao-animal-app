@@ -22,8 +22,9 @@ class _DropDownCustomState extends State<DropDownCustom> {
   final AddAnimalController _controller = AddAnimalController();
   String? _breed;
   final dropValue = ValueNotifier('');
-
+  
   String? get breed => _breed;
+  get dropChoices => widget.dropChoices;
 
   @override
   Widget build(BuildContext context) {

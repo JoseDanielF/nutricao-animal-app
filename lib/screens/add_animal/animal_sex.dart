@@ -12,7 +12,8 @@ class AnimalSexWidget extends StatefulWidget {
 }
 
 class _AnimalSexWidgetState extends State<AnimalSexWidget> {
-  AnimalSex? _animalSex = AnimalSex.male;
+  AnimalSex? animalSex = AnimalSex.male;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -34,10 +35,10 @@ class _AnimalSexWidgetState extends State<AnimalSexWidget> {
               child: Radio<AnimalSex>(
                 activeColor: kDetailColor,
                 value: AnimalSex.male,
-                groupValue: _animalSex,
+                groupValue: animalSex,
                 onChanged: (AnimalSex? value) {
                   setState(() {
-                    _animalSex = value;
+                    animalSex = value;
                   });
                 },
               ),
@@ -58,10 +59,10 @@ class _AnimalSexWidgetState extends State<AnimalSexWidget> {
               child: Radio<AnimalSex>(
                 value: AnimalSex.female,
                 activeColor: kDetailColor,
-                groupValue: _animalSex,
+                groupValue: animalSex,
                 onChanged: (AnimalSex? value) {
                   setState(() {
-                    _animalSex = value;
+                    animalSex = value;
                   });
                 },
               ),

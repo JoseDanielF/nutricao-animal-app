@@ -13,6 +13,7 @@ class CastratedWidget extends StatefulWidget {
 
 class _CastratedWidgetState extends State<CastratedWidget> {
   Castrated? _castratedAnimal = Castrated.yes;
+  get castratedAnimal => _castratedAnimal;
 
   @override
   Widget build(BuildContext context) {
